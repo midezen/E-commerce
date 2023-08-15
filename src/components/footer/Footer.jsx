@@ -9,7 +9,7 @@ const Footer = () => {
           <h1>Categories</h1>
           <span>Men</span>
           <span>Women</span>
-          <span>Shoes</span>
+          <span>Children</span>
           <span>Accessories</span>
           <span>New Arrivals</span>
         </div>

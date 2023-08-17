@@ -5,6 +5,7 @@ import sliderPhoto3 from "../../img/sliderPhoto3.png";
 import sliderPhoto4 from "../../img/sliderPhoto4.png";
 import { EastOutlined, WestOutlined } from "@mui/icons-material";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 const Slider = () => {
   const [slideNumber, setSlideNumber] = useState(0);
@@ -31,9 +32,11 @@ const Slider = () => {
                 If you're looking for the latest and greatest in wears and
                 fashion trends, <br /> you've come to the right place
               </p>
-              <button>
-                Shop Now <EastOutlined />
-              </button>
+              <Link to="/products/" className="link">
+                <button>
+                  Shop Now <EastOutlined />
+                </button>
+              </Link>
             </section>
             <img src={sliderPhoto4} alt="" />
           </div>
@@ -52,9 +55,11 @@ const Slider = () => {
                 If you're looking for the latest and greatest in wears and
                 fashion trends, <br /> you've come to the right place
               </p>
-              <button>
-                Shop Now <EastOutlined />
-              </button>
+              <Link to="/products/" className="link">
+                <button>
+                  Shop Now <EastOutlined />
+                </button>
+              </Link>
             </section>
 
             <img src={sliderPhoto2} alt="" />
@@ -72,9 +77,11 @@ const Slider = () => {
                 fashion trends, <br />
                 you've come to the right place
               </p>
-              <button>
-                Shop Now <EastOutlined />
-              </button>
+              <Link to="/products/" className="link">
+                <button>
+                  Shop Now <EastOutlined />
+                </button>
+              </Link>
             </section>
 
             <img src={sliderPhoto3} alt="" />
@@ -92,9 +99,11 @@ const Slider = () => {
                 fashion trends,
                 <br /> you've come to the right place
               </p>
-              <button>
-                Shop Now <EastOutlined />
-              </button>
+              <Link to="/products/" className="link">
+                <button>
+                  Shop Now <EastOutlined />
+                </button>
+              </Link>
             </section>
 
             <img src={sliderPhoto1} alt="" />

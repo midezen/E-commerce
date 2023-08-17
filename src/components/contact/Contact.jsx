@@ -17,11 +17,21 @@ const Contact = () => {
           <button>JOIN US</button>
         </div>
         <div className="icons">
-          <Facebook />
-          <Instagram />
-          <Twitter />
-          <Google />
-          <Pinterest />
+          <div className="icon">
+            <Facebook />
+          </div>
+          <div className="icon">
+            <Instagram />
+          </div>
+          <div className="icon">
+            <Twitter />
+          </div>
+          <div className="icon">
+            <Google />
+          </div>
+          <div className="icon">
+            <Pinterest />
+          </div>
         </div>
       </div>
     </div>

@@ -1,5 +1,5 @@
 .contact {
-  background-color: #2879fe;
+  background-color: black;
   color: white;
   padding: 15px;
   display: flex;
@@ -24,11 +24,16 @@
       background-color: #333;
       border-radius: 0 5px 5px 0;
       border: none;
+      cursor: pointer;
     }
 
     .icons {
       display: flex;
       gap: 10px;
+
+      .icon {
+        cursor: pointer;
+      }
     }
   }
 }

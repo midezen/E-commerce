@@ -27,22 +27,22 @@ const Navbar = () => {
             <KeyboardArrowDown />
           </div>
           <div className="item">
-            <Link to="/products/men" className="link">
+            <Link to="/products?cat=men" className="link">
               Men
             </Link>
           </div>
           <div className="item">
-            <Link to="/products/women" className="link">
+            <Link to="/products?cat=women" className="link">
               Women
             </Link>
           </div>
           <div className="item">
-            <Link to="/products/children" className="link">
+            <Link to="/products?cat=children" className="link">
               Children
             </Link>
           </div>
           <div className="item">
-            <Link to="/products/accessories" className="link">
+            <Link to="/products?cat=accessories" className="link">
               Accessories
             </Link>
           </div>

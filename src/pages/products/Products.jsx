@@ -1,64 +1,135 @@
-import { useParams } from "react-router-dom";
 import List from "../../components/list/List";
 import "./Products.scss";
 import { useState } from "react";
 
 const Products = () => {
-  const catId = parseInt(useParams().id);
-
   const [maxPrice, setMaxPrice] = useState(1000);
   const [sort, setSort] = useState("");
+  const [checkedValues, setCheckedValues] = useState([]);
+
+  const handleCheckBoxChange = (event) => {
+    const value = event.target.value;
+
+    if (event.target.checked) {
+      checkedValues.includes(value)
+        ? setCheckedValues((prev) => [...prev])
+        : setCheckedValues((prev) => [...prev, value]);
+    } else if (event.target.checked === false) {
+      setCheckedValues(checkedValues.filter((item) => item !== value));
+    }
+  };
+
   return (
     <div className="products">
       <div className="left">
         <div className="filterItem">
           <h2>Product Categories</h2>
           <div className="inputItem">
-            <input type="checkbox" id="1" value="hat" />
+            <input
+              type="checkbox"
+              id="1"
+              value="hat"
+              onChange={handleCheckBoxChange}
+            />
             <label htmlFor="1">Hat</label>
           </div>
           <div className="inputItem">
-            <input type="checkbox" id="2" value="t-shirt" />
+            <input
+              type="checkbox"
+              id="2"
+              value="t-shirt"
+              onChange={handleCheckBoxChange}
+            />
             <label htmlFor="2">T-shirt</label>
           </div>
           <div className="inputItem">
-            <input type="checkbox" id="3" value="coat" />
+            <input
+              type="checkbox"
+              id="3"
+              value="coat"
+              onChange={handleCheckBoxChange}
+            />
             <label htmlFor="3">Coat</label>
           </div>
           <div className="inputItem">
-            <input type="checkbox" id="4" value="jacket" />
+            <input
+              type="checkbox"
+              id="4"
+              value="jacket"
+              onChange={handleCheckBoxChange}
+            />
             <label htmlFor="4">Jacket</label>
           </div>
           <div className="inputItem">
-            <input type="checkbox" id="5" value="hoodie" />
+            <input
+              type="checkbox"
+              id="5"
+              value="hoodie"
+              onChange={handleCheckBoxChange}
+            />
             <label htmlFor="5">Hoodie</label>
           </div>
           <div className="inputItem">
-            <input type="checkbox" id="6" value="bag" />
+            <input
+              type="checkbox"
+              id="6"
+              value="bag"
+              onChange={handleCheckBoxChange}
+            />
             <label htmlFor="6">Bag</label>
           </div>
           <div className="inputItem">
-            <input type="checkbox" id="7" value="shoe" />
+            <input
+              type="checkbox"
+              id="7"
+              value="shoe"
+              onChange={handleCheckBoxChange}
+            />
             <label htmlFor="7">Shoe</label>
           </div>
           <div className="inputItem">
-            <input type="checkbox" id="8" value="belt" />
+            <input
+              type="checkbox"
+              id="8"
+              value="belt"
+              onChange={handleCheckBoxChange}
+            />
             <label htmlFor="8">Shirt</label>
           </div>
           <div className="inputItem">
-            <input type="checkbox" id="9" value="belt" />
+            <input
+              type="checkbox"
+              id="9"
+              value="belt"
+              onChange={handleCheckBoxChange}
+            />
             <label htmlFor="9">Belt</label>
           </div>
           <div className="inputItem">
-            <input type="checkbox" id="10" value="jean" />
+            <input
+              type="checkbox"
+              id="10"
+              value="jean"
+              onChange={handleCheckBoxChange}
+            />
             <label htmlFor="10">Jean</label>
           </div>
           <div className="inputItem">
-            <input type="checkbox" id="11" value="trouser" />
+            <input
+              type="checkbox"
+              id="11"
+              value="trouser"
+              onChange={handleCheckBoxChange}
+            />
             <label htmlFor="11">Trouser</label>
           </div>
           <div className="inputItem">
-            <input type="checkbox" id="12" value="wrist watch" />
+            <input
+              type="checkbox"
+              id="12"
+              value="wrist watch"
+              onChange={handleCheckBoxChange}
+            />
             <label htmlFor="12">Wrist Watch</label>
           </div>
         </div>
@@ -105,7 +176,7 @@ const Products = () => {
           alt=""
           className="catImg"
         />
-        <List catId={catId} maxPrice={maxPrice} sort={sort} />
+        <List maxPrice={maxPrice} sort={sort} checkedValues={checkedValues} />
       </div>
     </div>
   );

@@ -1,7 +1,8 @@
+import { useEffect } from "react";
 import Card from "../card/Card";
 import "./List.scss";
 
-const List = () => {
+const List = ({ maxPrice, sort, checkedValues }) => {
   const data = [
     {
       id: "1",
@@ -10,7 +11,8 @@ const List = () => {
       title: "Long Sleeve Graphic T-shirt",
       isNew: true,
       oldPrice: 19,
-      price: 12,
+      price: 500,
+      subCat: "t-shirt",
     },
     {
       id: "2",
@@ -19,7 +21,8 @@ const List = () => {
       title: "Coat",
       isNew: false,
       oldPrice: 19,
-      price: 12,
+      price: 600,
+      subCat: "coat",
     },
     {
       id: "3",
@@ -28,7 +31,8 @@ const List = () => {
       title: "Skirt",
       isNew: true,
       oldPrice: 19,
-      price: 12,
+      price: 700,
+      subCat: "skirt",
     },
     {
       id: "4",
@@ -37,7 +41,8 @@ const List = () => {
       title: "Hat",
       isNew: false,
       oldPrice: 19,
-      price: 12,
+      price: 800,
+      subCat: "hat",
     },
     {
       id: "5",
@@ -46,7 +51,8 @@ const List = () => {
       title: "Long Sleeve Graphic T-shirt",
       isNew: true,
       oldPrice: 19,
-      price: 12,
+      price: 900,
+      subCat: "t-shirt",
     },
     {
       id: "6",
@@ -55,7 +61,8 @@ const List = () => {
       title: "Coat",
       isNew: false,
       oldPrice: 19,
-      price: 12,
+      price: 1000,
+      subCat: "coat",
     },
     {
       id: "7",
@@ -64,7 +71,8 @@ const List = () => {
       title: "Skirt",
       isNew: true,
       oldPrice: 19,
-      price: 12,
+      price: 400,
+      subCat: "skirt",
     },
     {
       id: "8",
@@ -73,12 +81,33 @@ const List = () => {
       title: "Hat",
       isNew: false,
       oldPrice: 19,
-      price: 12,
+      price: 300,
+      subCat: "hat",
     },
   ];
+
+  const sortedData = data.sort((a, b) => {
+    if (sort === "asc") {
+      return a.price - b.price;
+    } else if (sort === "desc") {
+      return b.price - a.price;
+    } else {
+    }
+  });
+
+  const filteredData = sortedData.filter((product) =>
+    checkedValues.length !== 0
+      ? product.price <= maxPrice && checkedValues.includes(product.subCat)
+      : product.price <= maxPrice
+  );
+
+  useEffect(() => {
+    console.log(checkedValues);
+  }, [checkedValues]);
+
   return (
     <div className="list">
-      {data.map((item) => (
+      {filteredData.map((item) => (
         <Card key={item.id} item={item} />
       ))}
     </div>
